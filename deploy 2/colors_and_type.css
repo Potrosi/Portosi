@@ -1,0 +1,236 @@
+/* =========================================================================
+   Genesis Academy — Design Tokens
+   Single source of truth for colors, typography, spacing, radii, shadows.
+   Pull via `@import url('./colors_and_type.css')` and reference vars.
+   ========================================================================= */
+
+/* Manrope — used as Aeonik/General Sans approximation. Swap to licensed
+   brand font in production by replacing this import + --font-display/sans. */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* -----------------------------------------------------------------------
+     PALETTE — base tokens (don't use directly in components; use semantic).
+     ----------------------------------------------------------------------- */
+  --orange-50:  #FDF1E8;
+  --orange-100: #FBE0CC;
+  --orange-200: #F6BE96;
+  --orange-300: #F09A60;
+  --orange-400: #ED7E3F;
+  --orange-500: #E57233;   /* ← brand orange (sampled from logo) */
+  --orange-600: #D45F26;
+  --orange-700: #B14C1A;
+  --orange-800: #823811;
+
+  --ink-50:  #FAFAFA;
+  --ink-100: #F2EFEA;     /* warm off-white surface */
+  --ink-150: #ECE7DF;
+  --ink-200: #D8D5D0;     /* hairline border */
+  --ink-300: #B5B2AD;
+  --ink-400: #9A9A9A;     /* secondary text */
+  --ink-500: #6B6B6B;
+  --ink-600: #3F3F3F;
+  --ink-700: #232323;
+  --ink-900: #101010;     /* primary text / "true black" */
+
+  --paper:   #FFFFFF;
+  --cream:   #FAF7F2;     /* main page background */
+
+  /* -----------------------------------------------------------------------
+     SEMANTIC COLORS — use these in components.
+     ----------------------------------------------------------------------- */
+  --bg-page:        var(--cream);
+  --bg-surface:     var(--paper);
+  --bg-surface-alt: var(--ink-100);
+  --bg-inverse:     var(--ink-900);
+
+  --fg-default:     var(--ink-900);
+  --fg-muted:       var(--ink-400);
+  --fg-subtle:      var(--ink-300);
+  --fg-inverse:     var(--paper);
+  --fg-on-brand:    var(--paper);
+
+  --brand:          var(--orange-500);
+  --brand-hover:    var(--orange-600);
+  --brand-active:   var(--orange-700);
+  --brand-soft:     var(--orange-50);
+  --brand-soft-fg:  var(--orange-700);
+
+  --border-default: var(--ink-200);
+  --border-strong:  var(--ink-300);
+
+  /* Status (kept very low-key; not a major part of Academy's vocabulary) */
+  --status-success: #2E8B57;
+  --status-warn:    #C08A1E;
+  --status-error:   #C0392B;
+
+  /* -----------------------------------------------------------------------
+     TYPOGRAPHY
+     ----------------------------------------------------------------------- */
+  --font-display: 'Manrope', 'Aeonik Pro', 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans:    'Manrope', 'Aeonik Pro', 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:    'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Type scale (modular, ratio 1.25). Pixel values; clamp() in --h1 only. */
+  --fs-12: 12px;
+  --fs-14: 14px;
+  --fs-16: 16px;
+  --fs-18: 18px;
+  --fs-20: 20px;
+  --fs-24: 24px;
+  --fs-28: 28px;
+  --fs-32: 32px;
+  --fs-40: 40px;
+  --fs-48: 48px;
+  --fs-64: 64px;
+  --fs-80: 80px;
+  --fs-96: 96px;
+
+  --lh-tight: 1.04;
+  --lh-snug:  1.18;
+  --lh-base:  1.5;
+  --lh-loose: 1.7;
+
+  --tr-tight:  -0.04em;
+  --tr-snug:   -0.02em;
+  --tr-normal: 0;
+  --tr-wide:    0.04em;
+
+  /* -----------------------------------------------------------------------
+     SPACING (4px base)
+     ----------------------------------------------------------------------- */
+  --s-1:   4px;
+  --s-2:   8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  20px;
+  --s-6:  24px;
+  --s-8:  32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --s-20: 80px;
+  --s-24: 96px;
+  --s-32: 128px;
+
+  /* -----------------------------------------------------------------------
+     RADII
+     ----------------------------------------------------------------------- */
+  --r-xs:  4px;
+  --r-sm:  8px;
+  --r-md:  12px;
+  --r-lg:  20px;
+  --r-xl:  32px;
+  --r-pill: 999px;
+
+  /* -----------------------------------------------------------------------
+     SHADOWS — stripped down to near-flat
+     ----------------------------------------------------------------------- */
+  --shadow-sm:  0 1px 2px rgba(16, 16, 16, 0.04);
+  --shadow-md:  0 6px 18px rgba(16, 16, 16, 0.06);
+  --shadow-lg:  0 24px 60px rgba(16, 16, 16, 0.10);
+  --shadow-focus: 0 0 0 3px rgba(229, 114, 51, 0.25);
+
+  /* -----------------------------------------------------------------------
+     MOTION
+     ----------------------------------------------------------------------- */
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:    cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 320ms;
+
+  /* -----------------------------------------------------------------------
+     LAYOUT
+     ----------------------------------------------------------------------- */
+  --container-max: 1200px;
+  --container-px:  clamp(20px, 5vw, 96px);
+}
+
+/* =========================================================================
+   SEMANTIC ELEMENT STYLES
+   Use these by giving an element class .ga-h1, .ga-body, etc.
+   ========================================================================= */
+
+html, body {
+  background: var(--bg-page);
+  color: var(--fg-default);
+  font-family: var(--font-sans);
+  font-size: var(--fs-16);
+  line-height: var(--lh-base);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.ga-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-tight);
+}
+.ga-h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-tight);
+}
+.ga-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 3.5vw, 48px);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-snug);
+}
+.ga-h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-28);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-snug);
+}
+.ga-h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-20);
+  line-height: var(--lh-snug);
+}
+.ga-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-12);
+  letter-spacing: var(--tr-wide);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+.ga-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-16);
+  line-height: var(--lh-base);
+  color: var(--fg-default);
+}
+.ga-body-lg {
+  font-size: var(--fs-18);
+  line-height: var(--lh-base);
+}
+.ga-caption {
+  font-size: var(--fs-14);
+  color: var(--fg-muted);
+  line-height: var(--lh-base);
+}
+.ga-mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-14);
+}
+.ga-stat {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(48px, 6vw, 80px);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-tight);
+}
+
+.ga-accent { color: var(--brand); }
+.ga-muted  { color: var(--fg-muted); }
